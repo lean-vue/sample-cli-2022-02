@@ -24,13 +24,17 @@
 import type Todo from "@/model/todo";
 import { computed, defineProps } from "vue";
 
-const { todos } = defineProps<{
+const props = defineProps<{
   todos: Todo[];
 }>();
 
 const activeCount = computed(() => {
+  const { todos } = props;
   return todos.reduce((count, todo) => (todo.completed ? count : count + 1), 0);
 });
 
-const hasCompleted = computed(() => todos.some((t) => t.completed));
+const hasCompleted = computed(() => {
+  const { todos } = props;
+  return todos.some((t) => t.completed);
+});
 </script>

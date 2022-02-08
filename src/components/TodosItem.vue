@@ -13,7 +13,7 @@ import { defineProps, defineEmits } from "vue";
 
 import type Todo from "@/model/todo";
 
-const { todo } = defineProps<{
+defineProps<{
   todo: Todo;
 }>();
 
